@@ -17,3 +17,5 @@ imie1, *imie2 = zmienne
 print(imie1)
 print(imie2)
 # print(imie3)
+krotka1 = (2,)
+print(krotka1)
