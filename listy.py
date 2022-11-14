@@ -43,3 +43,8 @@ print(zbior2.intersection(zbior))
 # print(min(liczby))
 # print(max(liczby))
 # print(sum(liczby))
+
+liczby3 = [2, 4, 6, 8]
+print(liczby3[2:])
+print(liczby3[:-1])
+print(liczby3[-3:])
