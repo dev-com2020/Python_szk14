@@ -1,3 +1,5 @@
+from functools import reduce
+
 x = [1, 2, 3]
 
 
@@ -24,6 +26,7 @@ print(x)
 
 def func(a, b, c, d, e, f):
     print(a, b, c, d, e, f)
+
 
 #
 # func(1, *(2, 3), f=6, *(4, 5))
@@ -70,3 +73,79 @@ def connect(**options):
 # connect(port=9999, user='admin', pwd='12345', www='comarch.com')
 
 
+def fun(a, b=2, /):
+    print(a, b)
+
+
+fun(4, 5)
+fun(4)
+
+
+def func_name(name, /, **kwargs):
+    print(name)
+    print(kwargs)
+
+
+func_name('positional-only', name='Name in **kwargs')
+
+
+def fun1(*a, c):
+    print(a, c)
+
+
+def fun2(a, b=42, *, c):
+    print(a, b, c)
+
+
+# fun2(3, b=7, c=99)
+# fun2(3, c=99)
+# fun2(3, 99)
+
+
+def fun3(a, b, c=3, *args, **kwargs):
+    print()
+
+
+# fun1(1, 2, 3, c=4)
+# fun1(c=4)
+
+def func2(a=None, b=None):
+    if b is None:
+        b = {}
+    if a is None:
+        a = []
+
+
+def nic():
+    pass
+
+
+def factorial(n):
+    if n in (0, 1):
+        return 1
+    return factorial(n - 1)
+
+
+# print(factorial(234))
+
+def dodaj(a, b):
+    return a + b
+
+
+def to_upper(s):
+    return s.upper()
+
+
+print(dodaj(5, 5))
+print(to_upper("tomek"))
+
+adder = lambda a, b: a + b
+upper = lambda s: s.upper()
+print(adder(5, 5))
+print(upper('tomek'))
+
+lista = [1, 3, 5, 7]
+
+print(f"Zastosowanie map:{list(map(lambda x: x * 2, lista))}")
+print(f"Zastosowanie filter:{list(filter(lambda x: x > 3, lista))}")
+print(f"Zastosowanie reduce:{reduce(lambda x, y: x + y, lista)}")
